@@ -12,9 +12,13 @@ export const AuthContextProvider = ({children}) => {
     //?yeni kullanıcı oluşturmak için kullanılır.
     const createUsers=async(email,password)=>{
 
+        console.log("gonderilen data : ",email,password)
+
         try {
 
-            await createUserWithEmailAndPassword(auth, email, password)
+           let userCredential = await createUserWithEmailAndPassword(auth, email, password)
+
+            console.log("yakalanan data",userCredential)
 
         } catch (error) {
 
@@ -29,7 +33,7 @@ export const AuthContextProvider = ({children}) => {
 
   return (
 
-    <AutContext.Provider value={null}>
+    <AutContext.Provider value={values}>
         {children}
     </AutContext.Provider>
 
