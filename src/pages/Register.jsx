@@ -20,7 +20,10 @@ const Register = () => {
 
     createUsers(email,password)
 
-      
+    setemail("")
+    setname("")
+    setlastname("")
+    setpassword("")
   }
 
   console.log(email,password)
@@ -41,6 +44,7 @@ const Register = () => {
               type="text"
               placeholder=" "
               required
+              value={name}
               onChange={(e)=>setname(e.target.value)}
             />
             <label htmlFor="floating_text">First Name</label>
@@ -52,6 +56,7 @@ const Register = () => {
               type="text"
               placeholder=" "
               required
+              value={lastname}
               onChange={(e)=>setlastname(e.target.value)}
             />
             <label htmlFor="floating_text">Last Name</label>
@@ -63,6 +68,7 @@ const Register = () => {
               type="email"
               placeholder=" "
               required
+              value={email}
               onChange={(e)=>setemail(e.target.value)}
             />
             <label htmlFor="floating_email">Email</label>
@@ -74,6 +80,7 @@ const Register = () => {
               type="password"
               placeholder=" "
               required
+              value={password}
               onChange={(e)=>setpassword(e.target.value)}
             />
             <label htmlFor="floating_password">Password</label>
