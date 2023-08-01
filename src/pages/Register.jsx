@@ -26,7 +26,6 @@ const Register = () => {
     setpassword("")
   }
 
-  console.log(email,password)
 
   return (
     <div className="overflow-hidden flex-1 h-screen justify-center items-center bg-[#23242a] mt-5">

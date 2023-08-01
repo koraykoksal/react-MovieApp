@@ -11,7 +11,7 @@ export const AutContext = createContext();
 
 export const AuthContextProvider = ({children}) => {
 
-    const navigate=useNavigate();
+    let navigate=useNavigate();
 
     //?yeni kullanıcı oluşturmak için kullanılır.
     const createUsers=async(email,password)=>{

@@ -3,13 +3,16 @@ import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
 import AppRouter from "./router/AppRouter";
 import { AuthContextProvider } from "./context/AuthContext";
+import { DataContextPrivoder } from "./context/DataContext";
 
 const App = () => {
   return (
     <div className="dark:gray-dark-main min-h-screen">
       
 <AuthContextProvider>
-<AppRouter/>
+  <DataContextPrivoder>
+  <AppRouter/>
+  </DataContextPrivoder>
 </AuthContextProvider>
      
 
