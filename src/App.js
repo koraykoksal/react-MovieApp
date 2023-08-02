@@ -4,6 +4,8 @@ import Navbar from "./components/Navbar";
 import AppRouter from "./router/AppRouter";
 import { AuthContextProvider } from "./context/AuthContext";
 import { DataContextPrivoder } from "./context/DataContext";
+import { ToastContainer } from 'react-toastify';
+
 
 const App = () => {
   return (
@@ -12,6 +14,7 @@ const App = () => {
 <AuthContextProvider>
   <DataContextPrivoder>
   <AppRouter/>
+  <ToastContainer/>
   </DataContextPrivoder>
 </AuthContextProvider>
      
