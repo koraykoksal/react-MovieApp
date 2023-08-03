@@ -64,11 +64,13 @@ export const AuthContextProvider = ({children}) => {
         }
     }
 
+    //? kullanıcı çıkış yapacağı zaman kullanılır
     const logOut = () => {
         signOut(auth);
         toastSuccessNotify("Logged out successfully!");
     };
 
+    //?kullanıcının anlık olarka login bilgisini tutar sayfa her render olduğunda çalışır
     const userObserver=()=>{
         
         onAuthStateChanged(auth, (user) => {

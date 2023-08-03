@@ -1,42 +1,40 @@
 import { createContext } from "react";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import axios from "axios";
 
 export const DataContext=createContext();
 
+const API_KEY=process.env.REACT_APP_TMDB_KEY
+const reqAPI = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`
+
+
 export const DataContextPrivoder=({children})=>{
 
 
-    const options = {
-        method: 'GET',
-        headers: {
-          accept: 'application/json',
-          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlODViNTg1MWUyZDc4OTkzODJlZjljNmQ3YzExODM5MSIsInN1YiI6IjY0YzRlYmQ4NjNhYWQyMDIwOWE0YjcwZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.logjeDbEHNm6IHTMBQboM45-rFZyNR2ULUxi5M9mTvQ'
-        }
-      };
-
     const [data, setdata] = useState([])
+    const [loading, setloading] = useState(false)
 
-    const getData=async()=>{
-        
-        try {
+    useEffect(() => {
+      
+        getData(reqAPI);
+    
 
-            let res = await axios('https://api.themoviedb.org/3/discover/movie',options)
+    }, [])
+    
+    const getData=async(API)=>{
+        setloading(true)
+        axios(API)
+        .then((res)=>setdata(res.data.results))
+        .catch((err)=>console.log(err))
+        .finally(setloading(false))
 
-        if(res.status == '200'){
-            
-            setdata(res.data.results)
-            console.log(res.data)
-        }
-        } catch (error) {
-
-            console.log(error)
-
-        }
         
     }
 
-    const values={data,setdata,getData}
+    console.log("dataaa : ",data)
+
+
+    const values={data,setdata,getData,loading}
 
     return(
 
