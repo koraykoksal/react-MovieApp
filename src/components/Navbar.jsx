@@ -12,7 +12,8 @@ export default function Navbar() {
 
   const {logOut,currentuser}=useContext(AutContext)
 
-  const currentUser = { displayName: "" };
+  console.log("current user : ",currentuser)
+ 
 
   return (
     <>

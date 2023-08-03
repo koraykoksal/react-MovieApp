@@ -17,8 +17,8 @@ const Register = () => {
   const handleSubmit=(e)=>{
 
     e.preventDefault()
-
-    createUsers(email,password)
+    const displayName=`${name} ${lastname}`
+    createUsers(email,password,displayName)
 
     setemail("")
     setname("")

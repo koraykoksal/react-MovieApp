@@ -26,6 +26,7 @@ export const DataContextPrivoder=({children})=>{
         if(res.status == '200'){
             
             setdata(res.data.results)
+            console.log(res.data)
         }
         } catch (error) {
 
