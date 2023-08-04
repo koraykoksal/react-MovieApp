@@ -4,6 +4,7 @@ import avatar from "../assets/icons/avatar.png";
 import { Link } from "react-router-dom";
 import { AutContext } from "../context/AuthContext";
 import { DataContext } from "../context/DataContext";
+import { Switch } from "./Switch";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -31,6 +32,9 @@ export default function Navbar() {
               {currentuser && (
                 <h5 className="mr-2 capitalize">{currentuser?.displayName}</h5>
               )}
+
+                <Switch/>
+
               {/* Profile dropdown */}
               <Menu as="div" className="relative ml-3">
                 <div>

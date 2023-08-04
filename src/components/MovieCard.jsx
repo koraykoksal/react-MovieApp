@@ -36,6 +36,7 @@ return (
         <div className="flex align-baseline justify-between p-1 text-white">
             <h5>{title}</h5>
             {currentuser && (
+              //! tag clasının yanına gelecek olan green-orange-red isimleri ile index.css kısmındaki işlemler yapılır.
             <span className={`tag ${getVoteClass(vote_average)}`}>
             {vote_average.toFixed(1)}
             </span>
