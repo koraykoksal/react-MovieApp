@@ -8,6 +8,8 @@ export const PrivateRouter = () => {
     console.log(currentuser)
 
   return (
+
+    //! replace işlemi login ekranında iken tarayıcı üzerinden geri butonuna basıldığında bir önceki sayfaya dönmeyi sağlar.
     currentuser ? <Outlet/> : <Navigate to="/login" replace/>
   )
 }
