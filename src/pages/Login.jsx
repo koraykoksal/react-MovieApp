@@ -2,11 +2,12 @@ import React, { useContext,useState } from "react";
 import GoogleIcon from "../assets/icons/GoogleIcon";
 import { Link } from "react-router-dom";
 import { AutContext } from "../context/AuthContext";
+import { toastErrorNotify } from "../helpers/TostNotify";
 
 
 const Login = () => {
 
-  const {loginUsers,googleSignUp} = useContext(AutContext)
+  const {loginUsers,googleSignUp,passwordReset} = useContext(AutContext)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
@@ -16,6 +17,15 @@ const Login = () => {
     e.preventDefault();
     loginUsers(email,password)
     
+  }
+
+  const handleEmail=()=>{
+    if(email){
+      passwordReset(email);
+    }
+    else{
+      toastErrorNotify('Please enter email address !')
+    }
   }
 
   return (
@@ -55,7 +65,7 @@ const Login = () => {
             <label htmlFor="floating_password">Password</label>
           </div>
           <div className="flex justify-between">
-            <span className="py-3 font-[0.75em] cursor-pointer decoration-none text-gray-500 hover:text-[#ff4b45]">
+            <span className="py-3 font-[0.75em] cursor-pointer decoration-none text-gray-500 hover:text-[#ff4b45]" onClick={handleEmail}>
               Forgot Password
             </span>
             <Link

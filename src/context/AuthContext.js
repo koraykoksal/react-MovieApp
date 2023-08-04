@@ -3,7 +3,7 @@ import {auth} from '../auth/firebase.js'
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { signInWithEmailAndPassword} from 'firebase/auth';
 import {signOut,updateProfile,GoogleAuthProvider,signInWithPopup} from 'firebase/auth'
-import {onAuthStateChanged} from 'firebase/auth'
+import {onAuthStateChanged,sendPasswordResetEmail} from 'firebase/auth'
 import { useNavigate } from 'react-router-dom';
 import { toastErrorNotify, toastSuccessNotify } from "../helpers/TostNotify.js";
 
@@ -104,8 +104,19 @@ export const AuthContextProvider = ({children}) => {
         });
     }
 
+    //! password reset
+    const passwordReset=(email)=>{
+        sendPasswordResetEmail(auth, email)
+        .then(() => {
+          toastSuccessNotify('Please Check Your Mail Box')
+        })
+        .catch((error) => {
+          toastErrorNotify(error)
+        });
+    }
+
     //yukarıda oluşturulan createUsers fonksiyonu context olarak paylaşılır.
-    const values={createUsers,loginUsers,logOut,currentuser,googleSignUp}
+    const values={createUsers,loginUsers,logOut,currentuser,googleSignUp,passwordReset}
 
   return (
 
