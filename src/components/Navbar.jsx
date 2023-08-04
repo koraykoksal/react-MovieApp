@@ -40,6 +40,7 @@ export default function Navbar() {
                       className="h-8 w-8 rounded-full"
                       src={currentuser?.photoURL || avatar}
                       alt="user"
+                      referrerPolicy="no-referrer"
                     />
                   </Menu.Button>
                 </div>

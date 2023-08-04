@@ -4,7 +4,7 @@ import { AutContext } from "../context/AuthContext";
 
 const Register = () => {
 
-  const {createUsers}=useContext(AutContext)
+  const {createUsers,googleSignUp}=useContext(AutContext)
 
   const [name, setname] = useState("")
   const [lastname, setlastname] = useState("")
@@ -90,6 +90,7 @@ const Register = () => {
           <button
             type="button"
             className="btn-danger flex justify-between items-center"
+            onClick={()=>googleSignUp()}
           >
             Continue with Google
             <GoogleIcon color="currentColor" />

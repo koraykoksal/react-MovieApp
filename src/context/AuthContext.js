@@ -2,7 +2,7 @@ import React, { createContext,useState,useEffect } from 'react'
 import {auth} from '../auth/firebase.js'
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { signInWithEmailAndPassword} from 'firebase/auth';
-import {signOut,updateProfile} from 'firebase/auth'
+import {signOut,updateProfile,GoogleAuthProvider,signInWithPopup} from 'firebase/auth'
 import {onAuthStateChanged} from 'firebase/auth'
 import { useNavigate } from 'react-router-dom';
 import { toastErrorNotify, toastSuccessNotify } from "../helpers/TostNotify.js";
@@ -85,8 +85,27 @@ export const AuthContextProvider = ({children}) => {
           });
     }
 
+    
+    //* Authentication => sign-in-method => enable google
+    //! google ile girişi enable yap
+    //! projeyi deoplay ettikden sonra google sig-in çalışması için firebase aut kısmından domain alanına deploy linkini yaz
+
+    const googleSignUp=()=>{
+
+        const provider = new GoogleAuthProvider();
+
+        signInWithPopup(auth, provider)
+        .then((result) => {
+            navigate('/')
+            toastSuccessNotify('Signin Success')
+
+        }).catch((error) => {
+            toastErrorNotify('Google Sign Error')
+        });
+    }
+
     //yukarıda oluşturulan createUsers fonksiyonu context olarak paylaşılır.
-    const values={createUsers,loginUsers,logOut,currentuser}
+    const values={createUsers,loginUsers,logOut,currentuser,googleSignUp}
 
   return (
 
