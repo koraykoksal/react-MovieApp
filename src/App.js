@@ -9,14 +9,14 @@ import { ToastContainer } from 'react-toastify';
 
 const App = () => {
   return (
-    <div className="dark:gray-dark-main min-h-screen">
+    <div className="dark:bg-gray-dark-main min-h-screen">
       
-<AuthContextProvider>
-  <DataContextPrivoder>
-  <AppRouter/>
-  <ToastContainer/>
-  </DataContextPrivoder>
-</AuthContextProvider>
+    <AuthContextProvider>
+      <DataContextPrivoder>
+      <AppRouter/>
+      <ToastContainer/>
+      </DataContextPrivoder>
+    </AuthContextProvider>
      
 
     </div>

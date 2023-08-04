@@ -23,7 +23,9 @@ const Main = () => {
   console.log(searchTerm)
 
   const handleSubmit = (e) => {
+
     e.preventDefault();
+
     if (currentuser && searchTerm) {
       getData(SEARCH_API + searchTerm);
     } else if (!currentuser) {
@@ -31,7 +33,10 @@ const Main = () => {
     } else {
       toastWarnNotify("please enter a text");
     }
+
   };
+
+  
 
 
 return(
@@ -41,12 +46,13 @@ return(
   <form onSubmit={handleSubmit} className="flex justify-center p-5 mt-5 items-center">
     <input
       type="search"
-      className="w-80 h-8 rounded-sm p-1 m-2 bg-gray-300 text-black"
+      className="w-80 h-8 rounded-sm p-1 m-2 "
       placeholder="Search a movie..."
       onChange={(e) => setSearchTerm(e.target.value)}
+      
     />
-    {/* <button className="btn-danger-bordered">Search</button> */}
-    <FiSearch size={'25px'} className="hover:cursor-pointer"/>
+    <button className="btn-danger-bordered">Search</button>
+    {/* <FiSearch size={'25px'} color="white" className="hover:cursor-pointer"/> */}
   </form>
   <div className="flex justify-center flex-wrap">
     {loading ? (

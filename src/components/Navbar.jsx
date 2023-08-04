@@ -3,6 +3,7 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import avatar from "../assets/icons/avatar.png";
 import { Link } from "react-router-dom";
 import { AutContext } from "../context/AuthContext";
+import { DataContext } from "../context/DataContext";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -11,9 +12,9 @@ function classNames(...classes) {
 export default function Navbar() {
 
   const {logOut,currentuser}=useContext(AutContext)
+  const {getData} = useContext(DataContext)
 
-  console.log("current user : ",currentuser)
- 
+
 
   return (
     <>

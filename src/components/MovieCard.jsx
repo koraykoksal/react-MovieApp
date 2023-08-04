@@ -26,6 +26,7 @@ return (
     <div
         className="movie hover:scale-95 hover:rounded-xl"
         id="container"
+        //!detail sayfasına yönlendirme yapılıyor.MovieDetail componentinde ID bilgisini useParams ile yakalabiliriz
         onClick={() => navigate("/details/" + id)}>
                 <img
                     loading="lazy"
