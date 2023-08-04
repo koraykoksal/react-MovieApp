@@ -8,7 +8,7 @@ const IMG_API = "https://image.tmdb.org/t/p/w1280";
 const defaultImage =
       "https://images.unsplash.com/photo-1581905764498-f1b60bae941a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80";
     
-const {currentUser}=useContext(AutContext)
+const {currentuser}=useContext(AutContext)
 let navigate=useNavigate()
 
 const getVoteClass = (vote) => {
@@ -34,7 +34,7 @@ return (
                 />
         <div className="flex align-baseline justify-between p-1 text-white">
             <h5>{title}</h5>
-            {currentUser && (
+            {currentuser && (
             <span className={`tag ${getVoteClass(vote_average)}`}>
             {vote_average.toFixed(1)}
             </span>

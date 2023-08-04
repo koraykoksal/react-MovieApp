@@ -4,9 +4,10 @@ import { Navigate, Outlet } from 'react-router-dom'
 
 export const PrivateRouter = () => {
 
-    const {currentUser} = useContext(AutContext)
+    const {currentuser} = useContext(AutContext)
+    console.log(currentuser)
 
   return (
-    currentUser ? <Outlet/> : <Navigate to="/login"/>
+    currentuser ? <Outlet/> : <Navigate to="/login" replace/>
   )
 }

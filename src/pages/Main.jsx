@@ -18,15 +18,15 @@ const Main = () => {
 
   const {data,getData,loading}=useContext(DataContext)
   const [searchTerm, setSearchTerm] = useState("");
-  const { currentUser } = useContext(AutContext);
+  const { currentuser } = useContext(AutContext);
 
   console.log(searchTerm)
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (currentUser && searchTerm) {
+    if (currentuser && searchTerm) {
       getData(SEARCH_API + searchTerm);
-    } else if (!currentUser) {
+    } else if (!currentuser) {
       toastWarnNotify("Please log in to search movies");
     } else {
       toastWarnNotify("please enter a text");
