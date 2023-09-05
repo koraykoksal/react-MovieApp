@@ -68,7 +68,7 @@ export default function Navbar() {
                             "block px-4 py-2 text-sm text-gray-700"
                           )}
                         >
-                          Register
+                          Registers
                         </Link>
                       )}
                     </Menu.Item>
